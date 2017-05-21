@@ -2,7 +2,7 @@ import json
 import os.path
 import collections
 import itertools
-from PIL import Image
+# from PIL import Image
 import shutil
 
 def run(f):
@@ -22,11 +22,14 @@ def convert():
     for folder in os.listdir("."):
         if not os.path.isdir(folder):
             continue
-            
-        infolder = os.path.join(folder, "Texture2D")
 
-        for image in os.listdir(infolder):
-            img = Image.open(os.path.join(infolder, image))
-            img.save(os.path.join(folder, os.path.splitext(image)[0] + ".jpg"), "JPEG")
 
-        shutil.rmtree(infolder)
+                    
+        # infolder = os.path.join(folder, "Texture2D")
+
+        for image in os.listdir(folder):
+            os.rename(os.path.join(folder, image), os.path.join(folder, image.lower()))
+        #     img = Image.open(os.path.join(infolder, image))
+        #     img.save(os.path.join(folder, os.path.splitext(image)[0] + ".jpg"), "JPEG")
+
+        # shutil.rmtree(infolder)
